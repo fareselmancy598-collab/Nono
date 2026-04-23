@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💕</title>
+
+<style>
+body {
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    text-align: center;
+    font-family: Arial;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+h1 {
+    color: #c2185b;
+    transition: 0.3s;
+}
+
+img {
+    width: 150px;
+    margin: 20px 0;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+#yes {
+    background-color: #28a745;
+    color: white;
+}
+
+#no {
+    background-color: #dc3545;
+    color: white;
+    position: absolute;
+}
+
+/* animation */
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="title">Nono,Will you be my sweet little girl forever? 💕</h1>
+
+<img src="https://drive.google.com/file/d/1M3Uzt0SGugBwRdxN1u4vk9TkhlW2V8jy/view?usp=sharing">
+
+<br>
+
+<button id="yes" class="btn">Yes 💖</button>
+<button id="no" class="btn">No 😢</button>
+
+<script>
+let yesSize = 20;
+
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+
+// لما تضغط Yes
+yesBtn.onclick = () => {
+    document.body.innerHTML = `
+        <h1 style="color:#c2185b; font-size:40px;">I love you sooo much ❤️🥺</h1>
+        <p style="font-size:25px;">You just made me the happiest person 💕</p>x
+        <img src="https://drive.google.com/file/d/1MEfvKn05_Z-Om0PEZQH4R0l4bKv7vT37/view?usp=sharing" style="width:200px; margin-top:20px;">
+    `;
+};
+
+// لما تدوس No → Yes يكبر
+noBtn.onclick = () => {
+    yesSize += 10;
+    yesBtn.style.fontSize = yesSize + "px";
+    yesBtn.style.padding = "20px 40px";
+    yesBtn.style.animation = "pop 0.3s";
+};
+
+// لما تقرب من No → يهرب
+noBtn.onmouseover = () => {
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 100);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+};
+</script>
+
+</body>
+</html>
